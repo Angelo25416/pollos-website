@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PolloS MUSTAAAAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #fff5f5; }
+        header { background: linear-gradient(135deg, #d62828, #ff3b3b); color: white; padding: 15px; text-align:center; }
+        .logo { font-size: 28px; font-weight: bold; }
+        .logo i { font-style: italic; }
+        .logo span { color: yellow; }
+
+        .container { max-width: 600px; margin: auto; padding: 15px; }
+        input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 15px; }
+
+        .menu { background: white; margin: 10px 0; padding: 15px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); display:flex; gap:10px; }
+        .menu img { width: 80px; height:80px; border-radius:10px; object-fit:cover; }
+        .menu-details { flex:1; }
+
+        .price { color: #d62828; font-weight: bold; }
+        button { margin-top: 5px; padding: 8px; border:none; border-radius:6px; cursor:pointer; width:100%; }
+        .order-btn { background:#d62828; color:white; }
+        .add-btn { background:#ff9800; color:white; }
+        .qty-box { display:flex; gap:5px; margin-top:5px; }
+        .qty-box button { width:30%; }
+
+        .cart-box { position: fixed; bottom: 0; right: 0; background: #222; color: white; padding: 10px; width: 100%; max-width: 300px; border-top-left-radius: 10px; }
+        .cart-items { font-size: 13px; max-height: 120px; overflow-y: auto; margin-top: 5px; }
+
+        .footer { margin-top: 20px; padding: 15px; background: #222; color: white; text-align:center; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo"><i>PolloS</i><br><span>MUSTAAAAD</span></div>
+    <p>Fast Food Delivery Near Chuka University</p>
+</header>
+
+<div class="container">
+    <input type="text" id="location" placeholder="Enter your hostel or location">
+
+    <h3>🍗 Chicken</h3>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?chicken">
+        <div class="menu-details">
+            <h4>Drumsticks</h4>
+            <p class="price">KSh 80</p>
+            <button class="order-btn" onclick="orderSingle('Drumsticks - 80')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Drumsticks',80)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?chicken-wings">
+        <div class="menu-details">
+            <h4>Chicken Wings</h4>
+            <p class="price">KSh 50</p>
+            <button class="order-btn" onclick="orderSingle('Chicken Wings - 50')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Chicken Wings',50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?chicken-breast">
+        <div class="menu-details">
+            <h4>Chicken Breast</h4>
+            <p class="price">KSh 100</p>
+            <button class="order-btn" onclick="orderSingle('Chicken Breast - 100')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Chicken Breast',100)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?steak">
+        <div class="menu-details">
+            <h4>Steak Cuts</h4>
+            <p class="price">KSh 30 / 50</p>
+            <button class="order-btn" onclick="orderSingle('Steak Cuts')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Steak Cuts',50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <h3>🍟 Fries</h3>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?fries">
+        <div class="menu-details">
+            <h4>Regular Fries</h4>
+            <p class="price">KSh 50</p>
+            <button class="order-btn" onclick="orderSingle('Regular Fries - 50')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Regular Fries',50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?fries">
+        <div class="menu-details">
+            <h4>Half Fries</h4>
+            <p class="price">KSh 70</p>
+            <button class="order-btn" onclick="orderSingle('Half Fries - 70')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Half Fries',70)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?fries">
+        <div class="menu-details">
+            <h4>Full Fries</h4>
+            <p class="price">KSh 140</p>
+            <button class="order-btn" onclick="orderSingle('Full Fries - 140')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Full Fries',140)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?loaded-fries">
+        <div class="menu-details">
+            <h4>Half Fries + Toppings</h4>
+            <p class="price">KSh 110</p>
+            <button class="order-btn" onclick="orderSingle('Half Fries with Toppings - 110')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Half Fries + Toppings',110)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?loaded-fries">
+        <div class="menu-details">
+            <h4>Full Fries + Toppings</h4>
+            <p class="price">KSh 170</p>
+            <button class="order-btn" onclick="orderSingle('Full Fries with Toppings - 170')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Full Fries + Toppings',170)">Add to Cart</button>
+        </div>
+    </div>
+
+    <h3>🌭 Sausages</h3>
+
+    <div class="menu">
+        <img src="https://source.unsplash.com/80x80/?sausage">
+        <div class="menu-details">
+            <h4>Chicken Sausage</h4>
+            <p class="price">KSh 35</p>
+            <button class="order-btn" onclick="orderSingle('Chicken Sausage - 35')">Order Now</button>
+            <button class="add-btn" onclick="addToCart('Chicken Sausage',35)">Add to Cart</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="cart-box">
+    🛒 <span id="cart-count">0</span> items | 💰 KSh <span id="cart-total">0</span>
+    <div class="cart-items" id="cart-items"></div>
+    <button onclick="sendCart()">Order Cart</button>
+    <button onclick="clearCart()">Clear</button>
+</div>
+
+<div class="footer">
+    <p>💳 POCHI LA BIASHARA : 0791174471 | 📞 0791174471</p>
+</div>
+
+<script>
+let cart = {};
+
+function addToCart(name, price) {
+    if(!cart[name]) cart[name] = {price:price, qty:0};
+    cart[name].qty++;
+    updateCart();
+}
+
+function removeItem(name) {
+    if(cart[name]) {
+        cart[name].qty--;
+        if(cart[name].qty <=0) delete cart[name];
+    }
+    updateCart();
+}
+
+function updateCart() {
+    let total = 0;
+    let count = 0;
+    let html = "";
+
+    for(let item in cart) {
+        let data = cart[item];
+        total += data.price * data.qty;
+        count += data.qty;
+
+        html += `${item} x${data.qty} = ${data.price*data.qty} KSh <div class='qty-box'>
+        <button onclick="addToCart('${item}',${data.price})">+</button>
+        <button onclick="removeItem('${item}')">-</button>
+        </div>`;
+    }
+
+    document.getElementById("cart-items").innerHTML = html;
+    document.getElementById("cart-total").innerText = total;
+    document.getElementById("cart-count").innerText = count;
+}
+
+function clearCart() { cart = {}; updateCart(); }
+
+function orderSingle(item) {
+    let loc = document.getElementById("location").value;
+    if(!loc) return alert("Enter location");
+    let url = `https://wa.me/254791174471?text=${encodeURIComponent("Order: "+item+" Location: "+loc)}`;
+    window.open(url);
+}
+
+function sendCart() {
+    let loc = document.getElementById("location").value;
+    if(!loc) return alert("Enter location");
+
+    let msg = "Order:\n";
+    let total = 0;
+
+    for(let item in cart) {
+        let d = cart[item];
+        msg += `${item} x${d.qty} = ${d.price*d.qty} KSh\n`;
+        total += d.price*d.qty;
+    }
+
+    msg += `Total: ${total} KSh\nLocation: ${loc}`;
+
+    window.open(`https://wa.me/254791174471?text=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
